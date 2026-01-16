@@ -20,7 +20,7 @@ function tireStatus(pressuresPSI, rangeBar) {
   // results arr
   const results = bars.map((x) => {
     if (x > high) return 'High';
-    if (x < high && x > low) return 'Good';
+    if (x <= high && x >= low) return 'Good';
     return 'Low';
   });
 
