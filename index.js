@@ -7,3 +7,24 @@
 // "Low" if the tire pressure is below the minimum allowed.
 // "Good" if it's between the minimum and maximum allowed.
 // "High" if it's above the maximum allowed.
+
+function tireStatus(pressuresPSI, rangeBar) {
+  console.log(pressuresPSI, rangeBar);
+  const low = rangeBar[0];
+  const high = rangeBar[1];
+
+  // convert to psi to bar
+  const bars = pressuresPSI.map((x) => x / 14.5038);
+  // console.log(bars)
+
+  // results arr
+  const results = bars.map((x) => {
+    if (x > high) return 'High';
+    if (x < high && x > low) return 'Good';
+    return 'Low';
+  });
+
+  return results;
+
+  // return pressuresPSI;
+}
